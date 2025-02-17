@@ -74,7 +74,7 @@ const Products = () => {
             onClick={() => setCollapsed(!collapsed)}
             className="transition-all duration-300"
           />
-          <button class="appearance-none h-[40px] text-center flex items-center justify-center   bg-black border-2 border-[#1A1A1A] rounded-xl box-border text-white cursor-pointer inline-block font-semibold text-base leading-normal m-0 min-h-[60px] min-w-0 outline-none px-3 text-center transition-all duration-300 ease-in-out select-none sm:w-full max-w-[100px] mx-auto hover:bg-[#333333] hover:shadow-xl hover:translate-y-[-2px] active:transform-none active:shadow-none focus:outline-none focus:ring-4 focus:ring-[#FF5733]"
+          <button className="appearance-none h-[40px] text-center flex items-center justify-center   bg-black border-2 border-[#1A1A1A] rounded-xl box-border text-white cursor-pointer inline-block font-semibold text-base leading-normal m-0 min-h-[60px] min-w-0 outline-none px-3 text-center transition-all duration-300 ease-in-out select-none sm:w-full max-w-[100px] mx-auto hover:bg-[#333333] hover:shadow-xl hover:translate-y-[-2px] active:transform-none active:shadow-none focus:outline-none focus:ring-4 focus:ring-[#FF5733]"
             onClick={LogOut}
           >
 
