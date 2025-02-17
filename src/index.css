@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@import "antd/dist/reset.css";
+.ant-layout-sider {
+    transition: all 0.3s ease-in-out !important;
+  }
+  
