@@ -9,7 +9,7 @@ import {
   UploadOutlined
 } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+import Axios from "axios";
 
 const { Sider, Header, Content } = Layout;
 
@@ -39,7 +39,7 @@ const Category = () => {
   }, []);
 
   useEffect(() => {
-    axios
+    Axios
       .get("https://realauto.limsa.uz/api/categories")
       .then(res => setCategories(res.data.data))
       .catch(err => console.error("Ошибка при загрузке категорий:", err));
