@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { motion } from "framer-motion";
 import { Layout, Menu, Button } from "antd";
 import {
@@ -10,6 +9,7 @@ import {
   UploadOutlined
 } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const { Sider, Header, Content } = Layout;
 
