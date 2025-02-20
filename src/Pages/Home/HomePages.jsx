@@ -107,10 +107,10 @@ const App = () => {
           </button>
         </Header>
 
-        <Content className="m-6 p-6 bg-white rounded-lg shadow-md">
+        <Content className="m-6 p-6 bg-white rounded-lg shadow-md text-white">
           <input type="text" placeholder="name "
             onChange={(e) => setName(e?.target?.value)}
-          />
+          /> 
           <select name="" id="" onChange={(e) => setBrandId(e?.target?.value)}>
             <option value="" disabled></option>
             {
@@ -120,13 +120,6 @@ const App = () => {
             }
           </select>
           <button onClick={addModels}>Save</button>
-          <div className="grid grid-cols-2 pt-5 gap-5">
-            {models.map((item) => {
-              <div className="grid grid-cols-1 gap-5 p-5 bg-gray-500 rounded-[20px]"
-                key={item.id}
-              ></div>
-            })}
-          </div>
         </Content>
       </Layout>
     </Layout>
