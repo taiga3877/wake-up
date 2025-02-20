@@ -8,12 +8,50 @@ import {
   UploadOutlined
 } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { div } from "framer-motion/client";
+
 
 const { Sider, Header, Content } = Layout;
 
 const App = () => {
+  const [models, setModels] = useState([])
+  const [brand, setBrands] = useState([])
+  const [name, setName] = useState('')
+  const [brandId, setBrandId] = useState(null)
   const [collapsed, setCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const getModels = () => {
+    axios.get('https://realauto.limsa.uz/api/models').then(res => {
+      setModels(res?.data?.data)
+    })
+  }
+  const getBrands = () => {
+    axios.get('https://realauto.limsa.uz/api/brands').then(res => {
+      setModels(res?.data?.data)
+    })
+  }
+  useEffect(() => {
+    getModels()
+    getBrands()
+  })
+  const addModels = () => {
+    const formdata = new FormData()
+    formdata.append('name', name)
+    formdata.append('brand_id', brandId)
+    axios({
+      url: "https://realauto.limsa.uz/api/models",
+      method: "POST",
+      data: formdata,
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).then(res => {
+      toast.success("Add Models")
+      getModels()
+    })
+  }
   const LogOut = () => {
     localStorage.removeItem('accessToken')
     navigate('/login')
@@ -69,9 +107,26 @@ const App = () => {
           </button>
         </Header>
 
-        {/* Контент */}
         <Content className="m-6 p-6 bg-white rounded-lg shadow-md">
-          Home page
+          <input type="text" placeholder="name "
+            onChange={(e) => setName(e?.target?.value)}
+          />
+          <select name="" id="" onChange={(e) => setBrandId(e?.target?.value)}>
+            <option value="" disabled></option>
+            {
+              brand.map((item) => {
+                <option value={item.id}>{item.title}</option>
+              })
+            }
+          </select>
+          <button onClick={addModels}>Save</button>
+          <div className="grid grid-cols-2 pt-5 gap-5">
+            {models.map((item) => {
+              <div className="grid grid-cols-1 gap-5 p-5 bg-gray-500 rounded-[20px]"
+                key={item.id}
+              ></div>
+            })}
+          </div>
         </Content>
       </Layout>
     </Layout>

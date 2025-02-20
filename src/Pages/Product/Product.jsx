@@ -93,7 +93,7 @@ const Products = () => {
             className="grid grid-cols-2 pt-5 gap-5"
           >
             {brands.map(category => (
-              <motion.div
+              <motion.div   
                 key={category.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
